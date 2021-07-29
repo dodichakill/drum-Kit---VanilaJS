@@ -5,95 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drum Kit - plain JS</title>
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-    }
-
-    .container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    .background {
-      width: 100%;
-      height: 100vh;
-      object-fit: cover;
-    }
-
-    .keyboards {
-      width: 80%;
-      transform: translate(14%, 60%);
-      bottom: 0;
-      right: 0;
-      left: 0;
-      top: 0;
-      display: grid;
-      justify-content: center;
-      align-items: center;
-      height: 300px;
-      position: absolute;
-      display: grid;
-
-    }
-
-    .keys {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      border-radius: 1em;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      background-color: rgba(0, 0, 0, 0.238);
-    }
-
-    .key {
-      display: grid;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: .5em;
-      border-radius: .3em;
-      font-size: large;
-      width: 50px;
-      transition: .07s ease;
-      height: 52px;
-      background-color: lightcoral;
-      margin: 10px;
-    }
-
-    kbd {
-      color: white;
-      font-weight: bold;
-      font-size: 1.5em;
-    }
-
-    .sound {
-      font-size: 14px;
-      font-style: italic;
-      color: whitesmoke;
-    }
-
-    .playing {
-      transform: scale(1.15);
-      background-color: lightseagreen;
-      color: ghostwhite;
-    }
-
-    h1 {
-      text-align: center;
-      font-weight: bold;
-      font-size: 2.5em;
-      color: white;
-      text-shadow: 0 0 5px black;
-      margin-bottom: .5em;
-    }
-  </style>
+  <title>Drum Kit - Vanilla JS</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -147,6 +60,30 @@
           <kbd>w</kbd>
           <span class="sound">Crash 2</span>
         </div>
+        <div class="key" data-key="69">
+          <kbd>e</kbd>
+          <span class="sound">Hi Hat</span>
+        </div>
+        <div class="key" data-key="82">
+          <kbd>r</kbd>
+          <span class="sound">Crash 4</span>
+        </div>
+        <div class="key" data-key="85">
+          <kbd>u</kbd>
+          <span class="sound">SdSt</span>
+        </div>
+        <div class="key" data-key="73">
+          <kbd>i</kbd>
+          <span class="sound">Ride 2</span>
+        </div>
+        <div class="key" data-key="79">
+          <kbd>o</kbd>
+          <span class="sound">Ride 1</span>
+        </div>
+        <div class="key" data-key="80">
+          <kbd>p</kbd>
+          <span class="sound">Crash 3</span>
+        </div>
         <div class="key" data-key="67">
           <kbd>c</kbd>
           <span class="sound">Kick 1</span>
@@ -167,35 +104,15 @@
           <kbd>m</kbd>
           <span class="sound">H Hat</span>
         </div>
-        <div class="key" data-key="69">
-          <kbd>e</kbd>
-          <span class="sound">Hi Hat</span>
-        </div>
-        <div class="key" data-key="85">
-          <kbd>u</kbd>
-          <span class="sound">SdSt</span>
-        </div>
-        <div class="key" data-key="73">
-          <kbd>i</kbd>
-          <span class="sound">Ride 2</span>
-        </div>
-        <div class="key" data-key="79">
-          <kbd>o</kbd>
-          <span class="sound">Ride 1</span>
-        </div>
-        <div class="key" data-key="80">
-          <kbd>p</kbd>
-          <span class="sound">Crash 3</span>
-        </div>
 
-        <div class="key" data-key="82">
-          <kbd>r</kbd>
-          <span class="sound">Crash 4</span>
-        </div>
+
+
+
 
       </div>
     </div>
   </div>
+
   <!--  
   a = 65 / d = 68 / g = 71 / k = 75 / l = 76 / e = 69 / u = 85 / o = 79 / r = 82
   s = 83 / f = 70 / h = 72 /j = 74 / q = 81 / w = 87 / i = 73 / p = 80 / c = 67 
@@ -224,23 +141,7 @@
   <audio data-key="75" src="./audio/Tom03.wav"></audio>
   <audio data-key="76" src="./audio/Tom04.wav"></audio>
 
-  <script>
-    function playSound(e) {
-      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-      if (!audio) return;
-      audio.currentTime = 0;
-      audio.play();
-      key.classList.add('playing');
-    }
-    function removeTransition(e) {
-      if (e.propertyName !== 'transform') return;
-      this.classList.remove('.playing');
-    }
-
-    const keys = document.querySelectorAll('.key');
-    keys.forEach(key => key.addEventListener('transitioned', removeTransition));
-    window.addEventListener('keydown', playSound);
+  <script src="./main.js">
   </script>
 </body>
 

@@ -17,7 +17,7 @@
 
 .keyboards {
   width: 80%;
-  transform: translate(14%, 60%);
+  transform: translate(12%, 12%);
   bottom: 0;
   right: 0;
   left: 0;
@@ -39,7 +39,7 @@
   border-radius: 1em;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgba(0, 0, 0, 0.238);
+  background-color: rgba(0, 0, 0, 0.279);
 }
 
 .key {
@@ -53,8 +53,9 @@
   width: 50px;
   transition: all 0.07s;
   height: 52px;
-  background-color: lightcoral;
+  background-color: rgba(25, 32, 164, 0.707);
   margin: 10px;
+  border: 2px solid white;
 }
 
 kbd {
@@ -80,6 +81,32 @@ h1 {
   font-weight: bold;
   font-size: 2.5em;
   color: white;
-  text-shadow: 0 0 5px black;
+  text-shadow: 0 2px 5px black;
   margin-bottom: 0.5em;
+}
+
+h1 span {
+  position: relative;
+  top: -14px;
+  font-size: 18px;
+  padding: 2px 8px;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: rgba(151, 224, 5, 0.496);
+}
+footer {
+  position: fixed;
+  bottom: 15px;
+  padding: 1em;
+  font-size: 17.5px;
+  color: whitesmoke;
+  background-color: rebeccapurple;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+footer a {
+  color: orange;
+  text-decoration: none;
 }
